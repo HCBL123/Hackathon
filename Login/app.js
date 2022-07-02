@@ -16,7 +16,7 @@ app.post("/login", function(req, res) {
     res.sendFile(path.join(__dirname, '/login.html'));
 });
 
-app.get("/", function(req, res) {
+app.get("/flashcard", function(req, res) {
     res.sendFile(path.join(__dirname, '/login.html'));
     var front = req.body.front;
     var back = req.body.back;
