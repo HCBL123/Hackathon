@@ -1,0 +1,127 @@
+body {
+    display: block;
+    margin: 0px;
+    background-color: #0b092d;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    outline: none;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #0b092d;
+    border-bottom: solid 1px #434961;
+}
+
+li {
+    display: block;
+    top: 0;
+    margin: 10px 0px 10px 0px;
+    float: left;
+    color: #ffffff;
+    height: 60px;
+    width: auto;
+    text-align: center;
+}
+
+.account {
+    display: block;
+    position: absolute;
+    right: 15px;
+    margin: 10px;
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+#profile {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#username {
+    display: block;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+.navbar a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 25px 0px 0px 27px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.navbar li a:hover,
+.active {
+    text-decoration: underline 4px #a8b2ff;
+}
+
+#logo {
+    display: block;
+    margin: 0px;
+    top: 0;
+    left: 20px;
+    height: 55px;
+}
+
+.navbar button {
+    display: block;
+    width: 100px;
+    height: 35px;
+    margin: 15px 0px 0px 30px;
+    background-color: #4255ff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.main {
+    display: block;
+    padding-left: 20px;
+    margin-top: 120px;
+}
+
+.cards {
+    display: block;
+    width: 350px;
+    height: 200px;
+    margin: 0px 20px 5px 20px;
+    background-color: #2f3856;
+    border: none;
+    border-radius: 3%;
+}
+
+#text {
+    display: block;
+    margin: 0px 20px 0 20px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+h1 {
+    display: inline;
+    color: #ffffff;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    height: 500px;
+    width: 400px;
+    background-color: #2f3856;
+}

@@ -1,0 +1,89 @@
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+
+.maincontainer {
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+}
+
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+
+.thecard:focus {
+    transform: rotateY(180deg);
+}
+
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #2f3856;
+    color: #ffffff;
+}
+
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #2f3856;
+    color: #ffffff;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+
+.thefront p,
+.theback p {
+    font-family: sans-serif;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+}
+
+.theback button {
+    background-color: #272e47;
+    color: #ffffff;
+    border: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*This block (ends here) is merely styling for the flip card, and is NOT an essential part of the flip code */
