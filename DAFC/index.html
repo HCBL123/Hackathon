@@ -29,15 +29,15 @@
         <section>
             <div class="container">
                 <form>
-                    <div id="create_card">
+                    <div>
                         <h2>Create Flashcard</h2>
                         <label for="question">Question</label>
-                        <textarea id="question" maxlength="280" name="front"></textarea>
+                        <textarea id="front" maxlength="280" name="front"></textarea>
                         <label for="answer" maxlength="280">Answer</label>
                         <br>
-                        <textarea id="answer" name="back"></textarea>
+                        <textarea id="back" name="back"></textarea>
                         <div>
-                            <button id="save_card">Save</button> <button id="close_card_box">Close</button>
+                            <button id="save_card" onclick="loadDoc()">Save</button> <button id="close_card_box">Close</button>
                         </div>
                     </div>
                 </form>
@@ -53,6 +53,21 @@
     </main>
 
     <script src="script.js"></script>
+    <script>
+        function loadDoc() {
+            // Lấy dữ liệu từ textarea
+            var txt1 = docuemnt.getElementById('create_card').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(txt1);
+                }
+            };
+            // Gọi tới URL (Nhớ đúng method...)
+            xhttp.open("GET", `http://localhost:8080/DAFC/index.html?txt1=${txt1}`, true);
+            xhttp.send();
+        }
+    </script>
 </body>
 
 </html>
