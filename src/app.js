@@ -21,8 +21,7 @@ app.post("/login", function(req, res) {
 // app.get("/flashcard", function(req, res) {
 //     res.sendFile(path.join(__dirname, '/login.html'));
 
-// }); 
-
+// });  
 
 app.listen(8080, () => {
     console.log("Server started...")
@@ -41,16 +40,15 @@ app.get('/main.css', function(req, res) {
 app.get('/images/weblogo.png', function(req, res) {
     res.sendFile(path.join(__dirname, "..//images/weblogo.png"));
 });
+app.get('/DAFC/style.css', (req, res) => {
+    res.sendFile(path.join(__dirname, "../DAFC/style.css"));
+});
 
 app.get('/DAFC/index.html', (req, res) => {
-    var a = req.body.front;
-    var b = req.body.back;
-    console.log(a + ' ' + b);
+    console.log(req);
     res.sendFile(path.join(__dirname, "../DAFC/index.html"));
 });
 app.get('/DAFC/script.js', (req, res) => {
     res.sendFile(path.join(__dirname, "../DAFC/script.js"));
 });
-app.get('/DAFC/style.css', (req, res) => {
-    res.sendFile(path.join(__dirname, "../DAFC/style.css"));
-});
+0
