@@ -73,7 +73,7 @@ header{background-color: #fff;}
 
 #flashcards{
   display: flex;
-  justify-content: center;
+  justify-content: none;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;

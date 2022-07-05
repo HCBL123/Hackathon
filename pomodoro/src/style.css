@@ -1,0 +1,58 @@
+
+
+.container-fluid {
+  height: 100%;
+  width:100%;
+  display: table;
+  padding: 0;
+}
+
+.row-fluid{
+  display: table-cell;
+  margin:auto;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+.row{
+  margin:auto;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.centering {
+  float: none;
+  margin: 0 auto;
+}
+
+.totalTime{
+  width:50px;
+  height:30px;
+  margin: 0 auto;
+  float: left;
+  text-align:center;
+  font-size:20px;
+  color:dark;
+}
+
+.btn{
+  height:30;
+  width:30;
+  font-size:12px;
+  background-color:rgb(255, 195, 77);
+  display:block;
+  margin:0 auto;
+}
+
+.glyphicon{
+  text-align:center;
+  float:none;
+  margin:0 auto;
+}
+
+.setsize{
+  width:800px;
+  height:50px;
+}
+
+
+
+
+
