@@ -26,6 +26,8 @@ function startTimer(duration, display) {
     // we don't want to wait a full second before the timer starts
     timer();
     setInterval(timer, 1000);
+
+    
 }
 
 window.onload = function () {
