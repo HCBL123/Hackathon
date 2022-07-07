@@ -1,6 +1,12 @@
+// anh Việt sửa giúp mấy cái func startTimer với ...
+
 var dailySum = 0;
 var weeklySum = 0;
+var tempSum = 0;
 function startTimer(duration, display) {
+    timer()
+    const timerInterval = setInterval(timer, 1000);   
+    var leg = "pomodoro"
     var start = Date.now(),
         diff,
         minutes,
@@ -19,17 +25,33 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds; 
 
+        if (minutes == 0 && seconds == 0 && leg == "pomodoro"){
+            clearInterval(timerInterval);
+            pomodoroComplete();
+        }else if (minutes == 0 && seconds == 0 && log == "break"){
+            clearInterval(timerInterval);
+            breakComplete();
+        }
+        
         if (diff <= 0) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
             start = Date.now() + 1000;
         }
+    //run checks & log time studied in day/week
     tick()
     };
-    
     // we don't want to wait a full second before the timer starts
-    timer();
-    setInterval(timer, 1000);   
+    function checkTimeout() {
+        if (document.hasFocus() && leg == "pomodoro") {
+        } else {
+            dailySum -= tempSum;
+            weeklySum -= tempSum;
+            clearInterval(timerInterval);
+            resetTimer()
+        }
+    }
+    setInterval(checkTimeout, 1000);
 }
 
 
@@ -43,7 +65,7 @@ window.onload = function () {
 function tick(){
     updateTimer();
     var resetCheck = -1;
-    resetCheck = resetTimer();
+    resetCheck = resetSavedTime();
     if (resetCheck == 0) {
         console.log("weeklyTimeReset");
     }
@@ -52,8 +74,31 @@ function tick(){
     };
 };
 
+
+//utility functs
+function pomodoroComplete() {
+    tempSum = 0;
+    alert("you have completed the pomodoro");
+    leg = "break";
+    startTimer(300000);
+};
+
+function breakComplete() {
+    tempSum = 0;
+    alert("break time finished");
+    leg = "pomodoro";
+    startTimer(1500000);
+};
+
+function resetTimer() {
+    alert("Window has lost focus, resetting timer");
+    startTimer(1500000)
+}
+
+
 //daily/weekly resets
 function updateTimer() {
+    tempSum += 1;
     dailySum += 1;
     weeklySum += 1;
     dailyHours =  (((dailySum - (dailySum % 60)) / 60) - (((dailySum - (dailySum % 60)) / 60) & 60)) / 60;
@@ -68,7 +113,7 @@ function updateTimer() {
 
 
 //daily/weekly resets
-function resetTimer() {
+function resetSavedTime() {
     const now = new Date()
     if (now.getDay() == "1") {
         dailySum = 0;
@@ -80,4 +125,4 @@ function resetTimer() {
         console.log("resetting daily time");
         return(1)
     };
-}
+};
