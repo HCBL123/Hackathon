@@ -24,21 +24,12 @@ function startTimer(duration, display) {
             // example 05:00 not 04:59
             start = Date.now() + 1000;
         }
+    tick()
     };
-
-    secondTick()
-    var resetCheck = -1
-    resetCheck = reset()
-    if (resetCheck == 0) {
-        console.log("weeklyTimeReset")
-    }
-    else if (resetCheck == 1) {
-        console.log("dailyTimeReset")
-    }
-
+    
     // we don't want to wait a full second before the timer starts
     timer();
-    setInterval(timer, 1000);    
+    setInterval(timer, 1000);   
 }
 
 
@@ -49,8 +40,20 @@ window.onload = function () {
 };
 
 
+function tick(){
+    updateTimer();
+    var resetCheck = -1;
+    resetCheck = resetTimer();
+    if (resetCheck == 0) {
+        console.log("weeklyTimeReset");
+    }
+    else if (resetCheck == 1) {
+        console.log("dailyTimeReset");
+    };
+};
+
 //daily/weekly resets
-function secondTick() {
+function updateTimer() {
     dailySum += 1;
     weeklySum += 1;
     dailyHours =  (((dailySum - (dailySum % 60)) / 60) - (((dailySum - (dailySum % 60)) / 60) & 60)) / 60;
@@ -65,7 +68,7 @@ function secondTick() {
 
 
 //daily/weekly resets
-function reset() {
+function resetTimer() {
     const now = new Date()
     if (now.getDay() == "1") {
         dailySum = 0;
