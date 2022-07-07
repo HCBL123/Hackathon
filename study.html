@@ -15,7 +15,9 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><img src="/images/logo.png" alt="logo" id="logo"></li>
+            <li>
+                <img src="/images/logo.png" alt="logo" id="logo">
+            </li>
             <li>
                 <a href="index.html">Home</a>
             </li>
@@ -23,32 +25,88 @@
                 <a href="about.html">About</a>
             </li>
             <li><button>Create</button></li>
+            <!-- <button id="next" onclick="nextcard()">→</button> -->
             <div class="account">
-                <li id="username">username</li>
-                <li><img src="/images/profile.png" alt="profile" id="profile"></li>
-                <!-- <a href="login.html" id="dropdown">Log out</a> -->
+                <li id="name">username</li>
+                <li><img src="/images/profile.png" alt="profile" id="profile" onclick="dropdown()"></li>
             </div>
         </ul>
-    </div>
-    <div class="main">
-        <div class="maincontainer">
+        <div class="dropdown" id="dropdown">
+            <a href="info.html">Profile</a>
+            <a href="login.html">Log out</a>
+        </div>
+        <div class="main">
+            <div id="start">
+                <p>Do you want to start your study session</p>
+                <button id="yes" onclick="ask()">Yes</button>
+                <form action="index.html">
+                    <button id="no">No</button>
+                </form>
+            </div>
 
-            <div class="thecard" tabindex="0">
+            <div id="maincontainer">
 
-                <div class="thefront">
-                    <p>This is the front of the card. It contains important information pneumonoultramicroscopicsilicovolcanoconiosis. pneumonoultramicroscopicsilicovolcanoconiosis Please see overleaf for more details.
-                    </p>
+                <div class="thecard" tabindex="0">
+                    <div class="thefront">
+                        <p id="thefront">This is the front of the card. It contains important information pneumonoultramicroscopicsilicovolcanoconiosis. pneumonoultramicroscopicsilicovolcanoconiosis Please see overleaf for more details.</p>
+                    </div>
+
+                    <div class="theback">
+                        <button><p id="theback">Your use of this site is subject to the terms and conditions governing this and all transactions.</p></button>
+                    </div>
+
                 </div>
+            </div>
 
-                <div class="theback">
-                    <button><p>Your use of this site is subject to the terms and conditions governing this and all transactions.</p></button>
-                </div>
-
+            <div class="nextcard" id="nextcard">
+                <button id="back" onclick="backcard()">←</button>
+                <button id="next" onclick="nextcard()">→</button>
             </div>
         </div>
-    </div>
-    <script>
-    </script>
+        <script>
+            var front = ["Xuân Quỳnh là nam hay nữ?", "Mối quan hệ của Quang Trung và Nguyễn Huệ là gì??", "Cài mac để làm gì?"];
+            var back = ["Nam", "Vơk chồngk", "Để ngắm iem mỗi ngày :33"];
+            var i = 0;
+            var k = 1;
+
+            document.getElementById("thefront").innerHTML = front[i];
+            document.getElementById("theback").innerHTML = back[i];
+
+            function nextcard() {
+                i = i + k;
+                if (i < front.length) {
+                    document.getElementById("thefront").innerHTML = front[i];
+                    document.getElementById("theback").innerHTML = back[i];
+                } else {
+                    i = i - k;
+                }
+            }
+
+            function backcard() {
+                i = i - k;
+                if (i >= 0) {
+                    document.getElementById("thefront").innerHTML = front[i];
+                    document.getElementById("theback").innerHTML = back[i];
+                } else {
+                    i = i + k;
+                }
+            }
+
+            function dropdown() {
+                var dropdown = document.getElementById("dropdown")
+                if (dropdown.style.display == "block") {
+                    dropdown.style.display = "none"
+                } else {
+                    dropdown.style.display = "block"
+                }
+            }
+
+            function ask() {
+                document.getElementById("maincontainer").style.display = "block";
+                document.getElementById("nextcard").style.display = "block";
+                document.getElementById("start").style.display = "none";
+            }
+        </script>
 </body>
 
 </html>
