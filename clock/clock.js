@@ -1,5 +1,3 @@
-// anh Việt sửa giúp mấy cái func startTimer với ...
-
 var dailySum = 0;
 var weeklySum = 0;
 var tempSum = 0;
@@ -61,6 +59,31 @@ window.onload = function () {
     startTimer(haifiveMinutes, display);
 };
 
+//utility functs
+function pomodoroComplete() {
+    tempSum = 0;
+    alert("you have completed the pomodoro");
+    leg = "break";
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+function breakComplete() {
+    tempSum = 0;
+    alert("break time finished");
+    leg = "pomodoro";
+    var haifiveMinutes = 60 * 25,
+        display = document.querySelector('#time');
+    startTimer(haifiveMinutes, display);
+};
+
+function resetTimer() {
+    alert("Window has lost focus, resetting timer");
+    var haifiveMinutes = 60 * 25,
+        display = document.querySelector('#time');
+    startTimer(haifiveMinutes, display);
+};
 
 function tick(){
     updateTimer();
@@ -73,28 +96,6 @@ function tick(){
         console.log("dailyTimeReset");
     };
 };
-
-
-//utility functs
-function pomodoroComplete() {
-    tempSum = 0;
-    alert("you have completed the pomodoro");
-    leg = "break";
-    startTimer(300000);
-};
-
-function breakComplete() {
-    tempSum = 0;
-    alert("break time finished");
-    leg = "pomodoro";
-    startTimer(1500000);
-};
-
-function resetTimer() {
-    alert("Window has lost focus, resetting timer");
-    startTimer(1500000)
-}
-
 
 //daily/weekly resets
 function updateTimer() {
