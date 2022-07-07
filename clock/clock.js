@@ -23,9 +23,8 @@ function startTimer(duration, display) {
             start = Date.now() + 1000;
         }
     };
-    
-    
-        secondTick()
+
+    secondTick()
     var resetCheck = -1
     resetCheck = reset()
     if (resetCheck == 0) {
@@ -56,9 +55,9 @@ function secondTick() {
         localStorage.setItem("weekly","0");
     }
     let dailyPrev = localStorage.getItem("daily");
-    localStorage.setItem("daily",string(dailyPrev+1));
+    localStorage.setItem("daily",toString(dailyPrev+1));
     let weeklyPrev = localStorage.getItem("weekly");
-    localStorage.setItem("daily",string(weeklyPrev+1));
+    localStorage.setItem("daily",toString(weeklyPrev+1));
     dailySum =  localStorage.getItem("daily")
     dailyHours =  (((dailySum - (dailySum % 60)) / 60) - (((dailySum - (dailySum % 60)) / 60) & 60)) / 60;
     dailyMins =  ((dailySum - (dailyHours * 3600)) - ((dailySum - (dailyHours * 3600)) % 60)) / 60;
@@ -74,17 +73,14 @@ function secondTick() {
 
 //daily/weekly resets
 function reset() {
+    const now = new Date()
     if (now.getDay() == "1") {
         localStorage.clear();
         console.log("resetting weekly time");
         return(0)
-    }else if (getHours() == "0" && getMinutes() == "0" && getSeconds() == "0") {
+    }else if (now.getHours() == "0" && now.getMinutes() == "0" && now.getSeconds() == "0") {
         localStorage.removeItem("daily");
         console.log("resetting daily time");
         return(1)
     };
 }
-
-
-
-
