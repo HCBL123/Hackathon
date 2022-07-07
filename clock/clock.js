@@ -1,3 +1,5 @@
+var dailySum = 0;
+var weeklySum = 0;
 function startTimer(duration, display) {
     var start = Date.now(),
         diff,
@@ -49,25 +51,16 @@ window.onload = function () {
 
 //daily/weekly resets
 function secondTick() {
-    if (localStorage.getItem("daily") === null) {
-        localStorage.setItem("daily","0");
-    }else if (localStorage.getItem("weekly") === null) {
-        localStorage.setItem("weekly","0");
-    }
-    let dailyPrev = localStorage.getItem("daily");
-    localStorage.setItem("daily",toString(dailyPrev+1));
-    let weeklyPrev = localStorage.getItem("weekly");
-    localStorage.setItem("daily",toString(weeklyPrev+1));
-    dailySum =  localStorage.getItem("daily")
+    dailySum += 1;
+    weeklySum += 1;
     dailyHours =  (((dailySum - (dailySum % 60)) / 60) - (((dailySum - (dailySum % 60)) / 60) & 60)) / 60;
     dailyMins =  ((dailySum - (dailyHours * 3600)) - ((dailySum - (dailyHours * 3600)) % 60)) / 60;
     dailySecs = (dailySum - (dailyHours * 3600) - (dailyMins * 60));
-    weeklySum = localStorage.getItem("weekly")
     weeklyHours =  (((weeklySum - (weeklySum % 60)) / 60) - (((weeklySum - (weeklySum % 60)) / 60) & 60)) / 60;
     weeklyMins =  ((weeklySum - (weeklyHours * 3600)) - ((weeklySum - (weeklyHours * 3600)) % 60)) / 60;
     weeklySecs = (weeklySum - (weeklyHours * 3600) - (weeklyMins * 60));
-    console.log("daily study time" + dailyHours + "hours" + dailyMins + "minutes" + dailySecs + "seconds");
-    console.log("weekly study time" + weeklyHours + "hours" + weeklyMins + "minutes" + weeklySecs + "seconds");
+    console.log("daily study time " + dailyHours + " hours " + dailyMins + " minutes " + dailySecs + " seconds");
+    console.log("weekly study time " + weeklyHours + " hours " + weeklyMins + " minutes " + weeklySecs + " seconds");
 };
 
 
@@ -75,11 +68,12 @@ function secondTick() {
 function reset() {
     const now = new Date()
     if (now.getDay() == "1") {
-        localStorage.clear();
+        dailySum = 0;
+        weeklySum = 0;
         console.log("resetting weekly time");
         return(0)
     }else if (now.getHours() == "0" && now.getMinutes() == "0" && now.getSeconds() == "0") {
-        localStorage.removeItem("daily");
+        dailySum = 0;
         console.log("resetting daily time");
         return(1)
     };
