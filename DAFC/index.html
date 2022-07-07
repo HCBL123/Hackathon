@@ -7,6 +7,8 @@
     <link rel="shortcut icon" type="image/png" href="flashcard.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <title>Flashcards</title>
 </head>
 
@@ -28,16 +30,16 @@
 
         <section>
             <div class="container">
-                <form>
-                    <div>
+                <form method="post">
+                    <div id="create_card">
                         <h2>Create Flashcard</h2>
                         <label for="question">Question</label>
-                        <textarea id="front" maxlength="280" name="front"></textarea>
+                        <input id="front" maxlength="280" name="back"></input>
                         <label for="answer" maxlength="280">Answer</label>
                         <br>
-                        <textarea id="back" name="back"></textarea>
+                        <input id="back" name="back"></input>
                         <div>
-                            <button id="save_card" onclick="loadDoc()">Save</button> <button id="close_card_box">Close</button>
+                            <button id="save_card">Save</button> <button id="close_card_box">Close</button>
                         </div>
                     </div>
                 </form>
@@ -50,9 +52,8 @@
             </div>
         </section>
 
-    </main>
 
-    <script src="script.js"></script>
+    </main>
     <script>
         function loadDoc() {
             // Lấy dữ liệu từ textarea
@@ -68,6 +69,7 @@
             xhttp.send();
         }
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

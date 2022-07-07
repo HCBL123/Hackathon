@@ -45,10 +45,11 @@ app.get('/DAFC/style.css', (req, res) => {
 });
 
 app.get('/DAFC/index.html', (req, res) => {
-    console.log(req);
+    console.log(req.body.front);
+    console.log(req.body.back);
     res.sendFile(path.join(__dirname, "../DAFC/index.html"));
 });
+
 app.get('/DAFC/script.js', (req, res) => {
     res.sendFile(path.join(__dirname, "../DAFC/script.js"));
 });
-0
