@@ -1,6 +1,7 @@
 /* THE MAINCONTAINER HOLDS EVERYTHING */
 
-.maincontainer {
+#maincontainer {
+    display: none;
     position: absolute;
     width: 1000px;
     height: 500px;
@@ -45,6 +46,7 @@
     overflow: hidden;
     background: #2f3856;
     color: #ffffff;
+    text-align: center;
 }
 
 
@@ -81,6 +83,7 @@
     background-color: #272e47;
     color: #ffffff;
     border: 0px;
+    margin: 0;
     width: 100%;
     height: 100%;
 }

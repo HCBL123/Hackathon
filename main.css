@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 body {
     display: block;
     margin: 0px;
@@ -48,7 +52,7 @@ li {
     border-radius: 50%;
 }
 
-#username {
+#name {
     display: block;
     padding-top: 20px;
     padding-right: 10px;
@@ -124,4 +128,122 @@ h1 {
     height: 500px;
     width: 400px;
     background-color: #2f3856;
+}
+
+#start {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    font-weight: 600;
+}
+
+#login {
+    background-color: #0b092d;
+}
+
+#login button {
+    color: #0b092d;
+    font-weight: 600;
+    border-radius: 8px;
+    height: 45px;
+    width: 410px;
+}
+
+h1 {
+    display: inline;
+    color: #ffffff;
+}
+
+#login h1,
+#start p {
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#username,
+#password,
+#login button,
+#yes,
+#no,
+.g-signin2 {
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    padding-left: 0px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 400px;
+    height: 30px;
+    background-color: #ffffff;
+}
+
+#login button,
+#yes,
+#no {
+    color: #0b092d;
+    font-weight: 600;
+    border-radius: 8px;
+    height: 45px;
+    width: 410px;
+}
+
+#start {
+    margin-top: 200px;
+}
+
+#yes,
+#no {
+    font-size: 20px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    width: 100px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #13141b;
+    text-align: center;
+    border-radius: 10px;
+    top: 60px;
+    right: 15px;
+    overflow: hidden;
+}
+
+.dropdown a {
+    width: 100%;
+    margin: 0px;
+    top: 60px;
+    right: 12px;
+    color: #939bb4;
+    border: none;
+    padding: 15px;
+    text-align: left;
+}
+
+.dropdown a:hover {
+    color: #edeff5;
+    background-color: #282e3e;
+}
+
+.nextcard {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 43%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#next,
+#back {
+    display: inline;
+    background-color: #0b092d;
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px;
 }
